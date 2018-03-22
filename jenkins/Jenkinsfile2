@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+              dir('hellonode') {
+                docker.build("hello-node")
+                sh 'kubectl run hello-node --image=hello-node:v1 --port=8080'
+            }
+            }
+        }
+
+    }
+}
