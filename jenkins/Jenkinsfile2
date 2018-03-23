@@ -4,9 +4,12 @@ pipeline {
         stage('Build') {
             steps {
               dir('hellonode') {
-                docker.build("hello-node")
-                sh 'kubectl run hello-node --image=hello-node:v1 --port=8080'
-            }
+                sh 'docker build -t hello-node:v1 .'
+                }
+              dir('kubernetes')  {
+                sh 'kubectl create -f hellonode.yaml'
+              }
+
             }
         }
 
