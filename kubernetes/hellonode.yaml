@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: hellonode
-        image: hello-node:v1
+        image: hello-node:latest
         ports:
         - containerPort: 8080
 

@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
               dir('hellonode') {
-                sh 'docker build -t hello-node:v1 .'
+                sh 'docker build -t hello-node .'
                 }
               dir('kubernetes')  {
                 sh 'kubectl create -f hellonode.yaml'
